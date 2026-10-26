@@ -299,7 +299,7 @@ class RoomAnalyzer:
             {
                 "name": item["name"],
                 "category": item["category"],
-                "estimated_cost": f"${item['cost']:,}",
+                "estimated_cost": f"₹{item['cost']:,}",
                 "material": item["material"],
                 "placement_rationale": item["rationale"],
                 "style_match": target_style
@@ -338,7 +338,7 @@ class RoomAnalyzer:
         """Constructs strict JSON prompt for Multimodal LLMs."""
         return f"""
 You are an expert interior architect and computer vision space analyzer.
-Analyze this {room_type} photograph for a targeted AI inpainting and redesign in the '{target_style}' style with a '{budget_tier}' budget (approx ${budget_limit:,}).
+Analyze this {room_type} photograph for a targeted AI inpainting and redesign in the '{target_style}' style with a '{budget_tier}' budget (approx ₹{budget_limit:,}).
 
 Return ONLY a valid, raw JSON object with this exact structure:
 {{

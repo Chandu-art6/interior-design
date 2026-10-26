@@ -34,10 +34,10 @@ st.markdown("""
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
     /* Radiant Clean Modern Studio Theme */
-    .stApp {
-        background-color: #f8fafc;
-        background-image: radial-gradient(at 50% 0%, #ffffff 0%, #f4f7fb 60%, #eef2f6 100%);
-        color: #0f172a;
+    .stApp, [data-testid="stAppViewContainer"], [data-testid="stMain"] {
+        background-color: #f8fafc !important;
+        background-image: radial-gradient(at 50% 0%, #ffffff 0%, #f4f7fb 60%, #eef2f6 100%) !important;
+        color: #0f172a !important;
         font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     }
 
@@ -48,27 +48,197 @@ st.markdown("""
         max-width: 1350px;
     }
 
+    /* GLOBAL MAXIMUM TEXT CONTRAST & LEGIBILITY */
+    html, body, p, span, div, li, strong, b, em {
+        color: #0f172a;
+    }
+    
+    .stMarkdown, .stMarkdown p, .stMarkdown span, .stMarkdown li, .stMarkdown strong {
+        color: #0f172a !important;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        color: #0f172a !important;
+        font-weight: 800 !important;
+    }
+
+    /* Streamlit Widget Labels (Sliders, Selectboxes, Multiselects, Inputs, Radios, Checkboxes, File Uploads) */
+    label, [data-testid="stWidgetLabel"], [data-testid="stWidgetLabel"] p, [data-testid="stWidgetLabel"] span {
+        color: #0f172a !important;
+        font-weight: 700 !important;
+        font-size: 0.94rem !important;
+        letter-spacing: -0.2px !important;
+    }
+
+    /* Captions & Subtitles */
+    [data-testid="stCaptionContainer"],
+    [data-testid="stCaptionContainer"] p,
+    [data-testid="stCaptionContainer"] span,
+    .stCaption, .stCaption p {
+        color: #1e293b !important;
+        font-weight: 600 !important;
+        font-size: 0.84rem !important;
+    }
+
+    /* Slider specific labels, ticks, and numbers */
+    .stSlider [data-testid="stWidgetLabel"] p {
+        color: #0f172a !important;
+        font-weight: 700 !important;
+    }
+    div[data-testid="stSlider"] div,
+    div[data-testid="stSlider"] span,
+    div[data-testid="stSliderTickBar"] div {
+        color: #1e293b !important;
+        font-weight: 700 !important;
+    }
+
+    /* BaseWeb Selectbox and Dropdown Inputs */
+    div[data-baseweb="select"] {
+        border-radius: 8px !important;
+    }
+    div[data-baseweb="select"] > div {
+        background-color: #ffffff !important;
+        color: #0f172a !important;
+        border: 1.5px solid #cbd5e1 !important;
+        border-radius: 8px !important;
+        font-weight: 600 !important;
+    }
+    div[data-baseweb="select"] * {
+        color: #0f172a !important;
+        font-weight: 600 !important;
+    }
+    div[data-baseweb="popover"],
+    div[data-baseweb="popover"] *,
+    ul[role="listbox"],
+    ul[role="listbox"] li,
+    li[role="option"] {
+        background-color: #ffffff !important;
+        color: #0f172a !important;
+        font-weight: 600 !important;
+    }
+    li[role="option"]:hover,
+    li[aria-selected="true"] {
+        background-color: #eff6ff !important;
+        color: #1d4ed8 !important;
+    }
+
+    /* Multiselect Tags */
+    div[data-baseweb="tag"] {
+        background-color: #dbeafe !important;
+        border: 1.5px solid #93c5fd !important;
+        border-radius: 6px !important;
+    }
+    div[data-baseweb="tag"] span,
+    div[data-baseweb="tag"] div {
+        color: #1e3a8a !important;
+        font-weight: 700 !important;
+        font-size: 0.82rem !important;
+    }
+
+    /* Expanders */
+    [data-testid="stExpander"] {
+        border: 1.5px solid #cbd5e1 !important;
+        border-radius: 10px !important;
+        background-color: #ffffff !important;
+    }
+    [data-testid="stExpander"] summary {
+        color: #0f172a !important;
+        font-weight: 700 !important;
+    }
+    [data-testid="stExpander"] summary span,
+    [data-testid="stExpander"] summary p {
+        color: #0f172a !important;
+        font-weight: 700 !important;
+        font-size: 0.94rem !important;
+    }
+    [data-testid="stExpanderDetails"] {
+        color: #0f172a !important;
+    }
+
+    /* File Uploader */
+    [data-testid="stFileUploader"] {
+        border: 1.5px dashed #94a3b8 !important;
+        border-radius: 12px !important;
+        background-color: #ffffff !important;
+        padding: 12px !important;
+    }
+    [data-testid="stFileUploader"] [data-testid="stMarkdownContainer"] p,
+    [data-testid="stFileUploader"] small,
+    [data-testid="stFileUploader"] span,
+    [data-testid="stFileUploader"] div {
+        color: #1e293b !important;
+        font-weight: 600 !important;
+    }
+
+    /* Text Inputs & Text Areas */
+    .stTextInput input, .stTextArea textarea {
+        background-color: #ffffff !important;
+        color: #0f172a !important;
+        border: 1.5px solid #cbd5e1 !important;
+        border-radius: 8px !important;
+        font-weight: 600 !important;
+    }
+    .stTextInput input:focus, .stTextArea textarea:focus {
+        border-color: #2563eb !important;
+        box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2) !important;
+    }
+
+    /* Radio buttons & Checkboxes */
+    .stRadio label div, .stCheckbox label div,
+    [data-testid="stRadio"] [data-testid="stMarkdownContainer"] p,
+    [data-testid="stCheckbox"] [data-testid="stMarkdownContainer"] p {
+        color: #0f172a !important;
+        font-weight: 600 !important;
+    }
+
     /* Sidebar Clean Normal Light Styling */
     [data-testid="stSidebar"] {
         background-color: #ffffff !important;
-        border-right: 1px solid #cbd5e1 !important;
+        border-right: 1.5px solid #cbd5e1 !important;
     }
     [data-testid="stSidebar"] * {
         color: #0f172a !important;
     }
+    [data-testid="stSidebar"] label,
+    [data-testid="stSidebar"] [data-testid="stWidgetLabel"] p {
+        color: #0f172a !important;
+        font-weight: 700 !important;
+    }
     [data-testid="stSidebar"] .stMarkdown h3,
     [data-testid="stSidebar"] .stMarkdown h4 {
         color: #0f172a !important;
-        font-weight: 700 !important;
+        font-weight: 800 !important;
+    }
+
+    /* Alerts and Notification Boxes (High Contrast) */
+    .stAlert {
+        border-radius: 10px !important;
+    }
+    .stAlert [data-testid="stMarkdownContainer"] p {
+        font-weight: 600 !important;
+        color: #0f172a !important;
+    }
+    div[data-testid="stNotification"] {
+        color: #0f172a !important;
+    }
+
+    /* Dataframes / Tables */
+    [data-testid="stDataFrame"] {
+        border: 1.5px solid #cbd5e1 !important;
+        border-radius: 8px !important;
+    }
+    [data-testid="stDataFrame"] * {
+        color: #0f172a !important;
+        font-weight: 600 !important;
     }
 
     /* Radiant Hero Header */
     .hero-container {
         text-align: center;
-        padding: 18px 24px 14px 24px;
+        padding: 20px 24px 16px 24px;
         margin-bottom: 1.2rem;
         background: #ffffff;
-        border: 1px solid #cbd5e1;
+        border: 1.5px solid #cbd5e1;
         border-radius: 16px;
         box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
     }
@@ -78,16 +248,16 @@ st.markdown("""
         font-weight: 800;
         letter-spacing: -0.8px;
         color: #0f172a;
-        margin-bottom: 0.25rem;
+        margin-bottom: 0.35rem;
     }
     
     .hero-subtitle {
-        font-size: 0.98rem;
-        color: #334155;
-        font-weight: 500;
-        max-width: 780px;
-        margin: 0 auto 0.7rem auto;
-        line-height: 1.5;
+        font-size: 1.0rem;
+        color: #1e293b;
+        font-weight: 600;
+        max-width: 820px;
+        margin: 0 auto 0.8rem auto;
+        line-height: 1.55;
     }
 
     /* Luminous Badge Pills */
@@ -100,11 +270,11 @@ st.markdown("""
     }
     .hero-pill {
         background: #f1f5f9;
-        border: 1px solid #cbd5e1;
-        color: #1e293b;
-        font-size: 0.80rem;
+        border: 1.5px solid #cbd5e1;
+        color: #0f172a;
+        font-size: 0.82rem;
         font-weight: 700;
-        padding: 4px 14px;
+        padding: 5px 14px;
         border-radius: 20px;
         box-shadow: 0 1px 2px rgba(0,0,0,0.03);
     }
@@ -112,7 +282,7 @@ st.markdown("""
     /* Radiant Live Session Bar */
     .session-bar {
         background: #ffffff;
-        border: 1px solid #cbd5e1;
+        border: 1.5px solid #cbd5e1;
         border-radius: 12px;
         padding: 12px 20px;
         margin-bottom: 1.5rem;
@@ -127,24 +297,24 @@ st.markdown("""
         display: flex;
         align-items: center;
         gap: 8px;
-        font-size: 0.88rem;
+        font-size: 0.90rem;
         color: #0f172a;
-        font-weight: 600;
+        font-weight: 700;
     }
     .session-tag {
         background: #eff6ff;
-        border: 1px solid #93c5fd;
+        border: 1.5px solid #93c5fd;
         color: #1d4ed8;
         padding: 3px 10px;
         border-radius: 6px;
-        font-weight: 700;
-        font-size: 0.84rem;
+        font-weight: 800;
+        font-size: 0.86rem;
     }
 
     /* Crisp Luminous Cards */
     .glass-card {
         background: #ffffff;
-        border: 1px solid #cbd5e1;
+        border: 1.5px solid #cbd5e1;
         border-radius: 12px;
         padding: 20px;
         margin-bottom: 16px;
@@ -154,29 +324,29 @@ st.markdown("""
     /* KPI Metric Displays with High Contrast */
     .kpi-card {
         background: #ffffff;
-        border: 1px solid #cbd5e1;
+        border: 1.5px solid #cbd5e1;
         border-radius: 10px;
         padding: 16px 14px;
         text-align: center;
         box-shadow: 0 3px 12px rgba(15, 23, 42, 0.04);
     }
     .kpi-title {
-        font-size: 0.76rem;
+        font-size: 0.78rem;
         text-transform: uppercase;
         letter-spacing: 0.8px;
-        color: #475569;
+        color: #1e293b;
         margin-bottom: 6px;
-        font-weight: 700;
+        font-weight: 800;
     }
     .kpi-value {
-        font-size: 1.85rem;
+        font-size: 1.95rem;
         font-weight: 800;
         color: #0f172a;
         line-height: 1.1;
     }
     .kpi-sub {
-        font-size: 0.80rem;
-        color: #2563eb;
+        font-size: 0.82rem;
+        color: #1d4ed8;
         margin-top: 5px;
         font-weight: 700;
     }
@@ -184,7 +354,7 @@ st.markdown("""
     /* Inhabitant Profile Card */
     .inhabitant-card {
         background: #ffffff;
-        border: 1px solid #cbd5e1;
+        border: 1.5px solid #cbd5e1;
         border-radius: 12px;
         padding: 18px;
         margin-bottom: 14px;
@@ -194,8 +364,8 @@ st.markdown("""
     /* Comfort Evaluation Card */
     .comfort-highlight-card {
         background: #ffffff;
-        border: 1px solid #86efac;
-        border-left: 5px solid #16a34a;
+        border: 1.5px solid #86efac;
+        border-left: 6px solid #16a34a;
         border-radius: 12px;
         padding: 18px 20px;
         margin-top: 12px;
@@ -206,14 +376,19 @@ st.markdown("""
     /* Smart Suggestion Pill Card */
     .suggestion-box {
         background: #f0fdf4;
-        border: 1px solid #bbf7d0;
-        border-left: 4px solid #16a34a;
+        border: 1.5px solid #bbf7d0;
+        border-left: 5px solid #16a34a;
         border-radius: 8px;
-        padding: 10px 14px;
+        padding: 12px 16px;
         margin-top: 10px;
-        font-size: 0.84rem;
-        color: #166534;
-        line-height: 1.45;
+        font-size: 0.88rem;
+        color: #14532d;
+        line-height: 1.5;
+        font-weight: 500;
+    }
+    .suggestion-box b {
+        color: #14532d;
+        font-weight: 700;
     }
 
     /* STREAMLIT TAB STYLING - High Contrast & Visible at all times */
@@ -224,16 +399,16 @@ st.markdown("""
         background: #f1f5f9 !important;
         padding: 8px !important;
         border-radius: 14px !important;
-        border: 1px solid #cbd5e1 !important;
+        border: 1.5px solid #cbd5e1 !important;
         margin-bottom: 1.8rem !important;
         box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04) !important;
     }
     .stTabs [data-baseweb="tab"] {
         border-radius: 10px !important;
         background-color: #ffffff !important;
-        border: 1px solid #cbd5e1 !important;
+        border: 1.5px solid #cbd5e1 !important;
         padding: 10px 22px !important;
-        font-size: 0.94rem !important;
+        font-size: 0.95rem !important;
         font-weight: 700 !important;
         color: #0f172a !important;
         transition: all 0.15s ease !important;
@@ -243,11 +418,11 @@ st.markdown("""
     .stTabs [data-baseweb="tab"] div {
         color: #0f172a !important;
         font-weight: 700 !important;
-        font-size: 0.94rem !important;
+        font-size: 0.95rem !important;
     }
     .stTabs [data-baseweb="tab"]:hover {
         background-color: #e2e8f0 !important;
-        border-color: #94a3b8 !important;
+        border-color: #64748b !important;
         color: #0f172a !important;
     }
     .stTabs [data-baseweb="tab"]:hover p,
@@ -263,6 +438,7 @@ st.markdown("""
     .stTabs [data-baseweb="tab"][aria-selected="true"] span,
     .stTabs [data-baseweb="tab"][aria-selected="true"] div {
         color: #ffffff !important;
+        font-weight: 800 !important;
     }
     .stTabs [data-baseweb="tab-highlight"] {
         background-color: transparent !important;
@@ -276,31 +452,24 @@ st.markdown("""
         border-radius: 8px;
         font-weight: 700;
         padding: 0.55rem 1.3rem;
-        font-size: 0.92rem;
+        font-size: 0.94rem;
+        color: #0f172a;
+        background: #ffffff;
+        border: 1.5px solid #cbd5e1;
+    }
+    .stButton > button:hover {
+        border-color: #2563eb;
+        color: #2563eb;
     }
     .stButton > button[kind="primary"] {
-        background: #2563eb;
-        color: #ffffff;
-        border: none;
-        box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
+        background: #2563eb !important;
+        color: #ffffff !important;
+        border: none !important;
+        box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25) !important;
     }
     .stButton > button[kind="primary"]:hover {
-        background: #1d4ed8;
-        box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35);
-    }
-
-    /* High contrast selectboxes & multiselect tags */
-    div[data-baseweb="select"] > div {
-        background-color: #ffffff !important;
-        color: #0f172a !important;
-        border: 1px solid #cbd5e1 !important;
-        border-radius: 8px !important;
-    }
-    div[data-baseweb="tag"] {
-        background-color: #eff6ff !important;
-        border: 1px solid #bfdbfe !important;
-        color: #1e40af !important;
-        font-weight: 600 !important;
+        background: #1d4ed8 !important;
+        box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35) !important;
     }
 
     /* Color Swatch Display */
@@ -312,11 +481,11 @@ st.markdown("""
         border: 1px solid #cbd5e1;
     }
     .swatch-label {
-        font-size: 0.74rem;
-        color: #334155;
+        font-size: 0.76rem;
+        color: #0f172a;
         font-family: monospace;
         text-align: center;
-        font-weight: 600;
+        font-weight: 700;
     }
     </style>
 """, unsafe_allow_html=True)
@@ -407,14 +576,14 @@ FURNITURE_CATALOG = {
 }
 
 STYLE_SUGGESTIONS = {
-    "Industrial": "💡 **Better to use:** Replace bulky freestanding bookcases with wall-mounted steel & reclaimed wood shelving ($320) to expand circulation paths by 0.8m².",
-    "Japandi": "💡 **Better to use:** Pair a low-profile platform coffee table ($290) with an organic textured jute rug ($210) to maintain wide sightlines and natural light flow.",
-    "Modern Minimalist": "💡 **Better to use:** Opt for a floating wall-mounted media console ($420) and concealed storage to maintain completely open, unobstructed walkways (>90cm).",
-    "Scandinavian": "💡 **Better to use:** Choose a round nesting birch coffee table ($310) to eliminate sharp edge hazards and improve diagonal traffic flow.",
-    "Luxury Contemporary": "💡 **Better to use:** Feature a curved organic velvet sofa ($1,450) to guide flowing pedestrian movement around the central conversation zone.",
-    "Biophilic Modern": "💡 **Better to use:** Place a vertical botanical planter trellis ($340) beside the main window to optimize air quality and biophilic connection without consuming floor space.",
-    "Mid-Century Modern": "💡 **Better to use:** Utilize tapered walnut credenzas ($580) and iconic brass floor lamps ($210) for retro balance and elevated ground clearance.",
-    "Bohemian Warm": "💡 **Better to use:** Layer flatweave kilim rugs ($320) with macramé wall hangings to boost acoustic sound absorption (NRC +0.25)."
+    "Industrial": "💡 **Better to use:** Replace bulky freestanding bookcases with wall-mounted steel & reclaimed wood shelving (₹26,500) to expand circulation paths by 0.8m².",
+    "Japandi": "💡 **Better to use:** Pair a low-profile platform coffee table (₹24,000) with an organic textured jute rug (₹17,500) to maintain wide sightlines and natural light flow.",
+    "Modern Minimalist": "💡 **Better to use:** Opt for a floating wall-mounted media console (₹35,000) and concealed storage to maintain completely open, unobstructed walkways (>90cm).",
+    "Scandinavian": "💡 **Better to use:** Choose a round nesting birch coffee table (₹25,500) to eliminate sharp edge hazards and improve diagonal traffic flow.",
+    "Luxury Contemporary": "💡 **Better to use:** Feature a curved organic velvet sofa (₹1,20,000) to guide flowing pedestrian movement around the central conversation zone.",
+    "Biophilic Modern": "💡 **Better to use:** Place a vertical botanical planter trellis (₹28,000) beside the main window to optimize air quality and biophilic connection without consuming floor space.",
+    "Mid-Century Modern": "💡 **Better to use:** Utilize tapered walnut credenzas (₹48,000) and iconic brass floor lamps (₹17,500) for retro balance and elevated ground clearance.",
+    "Bohemian Warm": "💡 **Better to use:** Layer flatweave kilim rugs (₹26,500) with macramé wall hangings to boost acoustic sound absorption (NRC +0.25)."
 }
 
 # Helper function for rendering rich metric cards
@@ -472,7 +641,7 @@ with st.sidebar:
         key="sb_budget_tier"
     )
     st.session_state.budget_limit = st.slider(
-        "Budget Limit ($)",
+        "Budget Limit (₹)",
         1000, 50000,
         int(st.session_state.budget_limit),
         step=1000,
@@ -531,8 +700,8 @@ st.markdown(f"""
             <span style="font-size: 1.1rem;">👥</span> <b>Inhabitants ({len(active_users)}):</b> {user_pills_html}
         </div>
         <div class="session-item">
-            <span style="font-size: 1.1rem;">💰</span> <b>Budget:</b> <span class="session-tag">${st.session_state.budget_limit:,} ({st.session_state.budget_tier})</span>
-            <span style="font-size: 0.78rem; color: #64748b; margin-left: 4px;">[Furn: ${furn_val:,} &bull; Light: ${light_val:,} &bull; Reno: ${reno_val:,}]</span>
+            <span style="font-size: 1.1rem;">💰</span> <b>Budget:</b> <span class="session-tag">₹{st.session_state.budget_limit:,} ({st.session_state.budget_tier})</span>
+            <span style="font-size: 0.82rem; color: #1e293b; font-weight: 700; margin-left: 4px;">[Furn: ₹{furn_val:,} &bull; Light: ₹{light_val:,} &bull; Reno: ₹{reno_val:,}]</span>
         </div>
     </div>
 """, unsafe_allow_html=True)
@@ -556,7 +725,7 @@ with tab1:
         st.markdown("""
             <div class="glass-card">
                 <div style="font-size: 1.10rem; font-weight: 700; color: #0f172a; margin-bottom: 4px;">📸 Step 1: Upload Room Image</div>
-                <div style="font-size: 0.86rem; color: #64748b; margin-bottom: 12px;">Upload a photograph of your existing space or load a sample room to detect furniture and extract room geometry.</div>
+                <div style="font-size: 0.88rem; color: #1e293b; font-weight: 500; margin-bottom: 12px;">Upload a photograph of your existing space or load a sample room to detect furniture and extract room geometry.</div>
             </div>
         """, unsafe_allow_html=True)
         
@@ -598,7 +767,7 @@ with tab1:
         st.markdown("""
             <div class="glass-card">
                 <div style="font-size: 1.10rem; font-weight: 700; color: #0f172a; margin-bottom: 4px;">🖼️ Uploaded Room Preview</div>
-                <div style="font-size: 0.86rem; color: #64748b; margin-bottom: 12px;">Your input room photograph used as architectural reference.</div>
+                <div style="font-size: 0.88rem; color: #1e293b; font-weight: 500; margin-bottom: 12px;">Your input room photograph used as architectural reference.</div>
             </div>
         """, unsafe_allow_html=True)
         
@@ -635,10 +804,10 @@ with tab1:
                 pct_val = palette[i].get("percentage", 0)
                 with p_col:
                     st.markdown(f"""
-                        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 8px; text-align: center;">
+                        <div style="background: #ffffff; border: 1.5px solid #cbd5e1; border-radius: 8px; padding: 8px; text-align: center;">
                             <div class="swatch-box" style="background-color: {hex_val};"></div>
                             <div class="swatch-label">{hex_val}</div>
-                            <div style="font-size: 0.72rem; color: #64748b; margin-top: 2px;">{pct_val}%</div>
+                            <div style="font-size: 0.76rem; color: #0f172a; font-weight: 700; margin-top: 2px;">{pct_val}%</div>
                         </div>
                     """, unsafe_allow_html=True)
 
@@ -696,7 +865,7 @@ with tab2:
             st.markdown(f"""
                 <div class="inhabitant-card" style="border-top: 3px solid {inhab_border_colors[i]};">
                     <div style="font-size: 1.05rem; font-weight: 700; color: #0f172a; margin-bottom: 2px;">👤 Inhabitant {u_idx}</div>
-                    <div style="font-size: 0.78rem; color: #475569; margin-bottom: 8px;">{'Primary Inhabitant' if i == 0 else 'Co-Inhabitant'}</div>
+                    <div style="font-size: 0.80rem; color: #1e293b; font-weight: 600; margin-bottom: 8px;">{'Primary Inhabitant' if i == 0 else 'Co-Inhabitant'}</div>
                 </div>
             """, unsafe_allow_html=True)
             
@@ -726,19 +895,19 @@ with tab2:
             total_items_cost = sum([FURNITURE_CATALOG.get(item, {}).get("cost", 200) for item in selected_items])
             
             # Display itemized cost tags
-            st.markdown(f"**Itemized Costs (Selected Total: ${total_items_cost:,}):**")
+            st.markdown(f"**Itemized Costs (Selected Total: ₹{total_items_cost:,}):**")
             cost_tags_html = " ".join([
                 f"<span style='display:inline-block; background:#eff6ff; border:1px solid #bfdbfe; color:#1e40af; border-radius:6px; padding:2px 7px; font-size:0.75rem; margin:2px; font-weight:600;'>"
-                f"{FURNITURE_CATALOG.get(it, {}).get('icon', '🛋️')} {it}: <b>${FURNITURE_CATALOG.get(it, {}).get('cost', 200)}</b>"
+                f"{FURNITURE_CATALOG.get(it, {}).get('icon', '🛋️')} {it}: <b>₹{FURNITURE_CATALOG.get(it, {}).get('cost', 200)}</b>"
                 f"</span>"
                 for it in selected_items
-            ]) if selected_items else "<span style='font-size:0.80rem; color:#64748b;'>No items selected yet.</span>"
+            ]) if selected_items else "<span style='font-size:0.80rem; color:#475569; font-weight:600;'>No items selected yet.</span>"
             
             st.markdown(cost_tags_html, unsafe_allow_html=True)
             
             # Smart Suggestion for better objects
             active_inhab_style = st.session_state[f"u{u_idx}_style"]
-            suggestion_text = STYLE_SUGGESTIONS.get(active_inhab_style, "💡 **Better to use:** Multi-functional nesting tables ($310) to optimize floor space.")
+            suggestion_text = STYLE_SUGGESTIONS.get(active_inhab_style, "💡 **Better to use:** Multi-functional nesting tables (₹25,500) to optimize floor space.")
             
             st.markdown(f"""
                 <div class="suggestion-box">
@@ -763,7 +932,7 @@ with tab2:
         )
         
         st.session_state.budget_limit = st.slider(
-            "Total Budget ($)",
+            "Total Budget (₹)",
             1000, 50000,
             int(st.session_state.budget_limit),
             step=500,
@@ -785,24 +954,24 @@ with tab2:
                 <div style="font-size: 1.0rem; font-weight: 700; color: #0f172a; margin-bottom: 12px;">💰 Estimated Project Costs:</div>
                 <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.88rem;">
                     <span>🛋️ Furniture & Seating:</span>
-                    <b style="color: #2563eb;">${furn_dollar:,} ({st.session_state.furn_pct}%)</b>
+                    <b style="color: #2563eb;">₹{furn_dollar:,} ({st.session_state.furn_pct}%)</b>
                 </div>
                 <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.88rem;">
                     <span>💡 Lighting & Fixtures:</span>
-                    <b style="color: #0284c7;">${light_dollar:,} ({st.session_state.light_pct}%)</b>
+                    <b style="color: #0284c7;">₹{light_dollar:,} ({st.session_state.light_pct}%)</b>
                 </div>
                 <div style="display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 0.88rem;">
                     <span>🪵 Flooring & Finishes:</span>
-                    <b style="color: #16a34a;">${reno_dollar:,} ({reno_calc_pct}%)</b>
+                    <b style="color: #16a34a;">₹{reno_dollar:,} ({reno_calc_pct}%)</b>
                 </div>
                 <hr style="border-color: #cbd5e1; margin: 10px 0;">
                 <div style="display: flex; justify-content: space-between; font-size: 0.92rem;">
                     <span>Estimated Total Project Cost:</span>
-                    <b>${est_total_cost:,}</b>
+                    <b>₹{est_total_cost:,}</b>
                 </div>
                 <div style="display: flex; justify-content: space-between; font-size: 0.92rem; color: #16a34a; font-weight: 700; margin-top: 4px;">
                     <span>Safety Buffer Remaining:</span>
-                    <span>+${buffer_total:,}</span>
+                    <span>+₹{buffer_total:,}</span>
                 </div>
             </div>
         """, unsafe_allow_html=True)
@@ -823,7 +992,7 @@ with tab3:
             <div class="glass-card" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 12px;">
                 <div>
                     <div style="font-size: 1.15rem; font-weight: 700; color: #0f172a;">Generate Redesign Options & 2D Floor Plans</div>
-                    <div style="font-size: 0.85rem; color: #334155;"><b>Inhabitants:</b> {user_summary} &nbsp;|&nbsp; <b>Room:</b> {st.session_state.room_type} &nbsp;|&nbsp; <b>Budget:</b> ${st.session_state.budget_limit:,} ({st.session_state.budget_tier})</div>
+                    <div style="font-size: 0.85rem; color: #334155;"><b>Inhabitants:</b> {user_summary} &nbsp;|&nbsp; <b>Room:</b> {st.session_state.room_type} &nbsp;|&nbsp; <b>Budget:</b> ₹{st.session_state.budget_limit:,} ({st.session_state.budget_tier})</div>
                 </div>
             </div>
         """, unsafe_allow_html=True)
@@ -857,41 +1026,41 @@ with tab3:
                             <div style="font-size: 1.12rem; font-weight: 700; color: #0f172a;">
                                 ⭐ Comfort Score for Selected Layout: <span style="color: #2563eb;">{active_title}</span> ({active_style})
                             </div>
-                            <div style="font-size: 0.82rem; color: #475569; margin-top: 2px;">
+                            <div style="font-size: 0.84rem; color: #1e293b; font-weight: 600; margin-top: 2px;">
                                 <b>Inhabitant Focus:</b> {active_persona} &nbsp;|&nbsp; <b>Layout Archetype:</b> {curr_var.get('layout_archetype', 'Custom Layout')}
                             </div>
                         </div>
                         <div style="display: flex; gap: 8px; align-items: center;">
-                            <span style="background: #dcfce7; border: 1px solid #86efac; border-radius: 10px; padding: 6px 14px; font-weight: 800; color: #15803d; font-size: 1.10rem;">
+                            <span style="background: #dcfce7; border: 1.5px solid #86efac; border-radius: 10px; padding: 6px 14px; font-weight: 800; color: #15803d; font-size: 1.10rem;">
                                 ⭐ {comfort_score_val}/100 Comfort
                             </span>
-                            <span style="background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 10px; padding: 6px 10px; font-weight: 700; color: #1d4ed8; font-size: 0.82rem;">
+                            <span style="background: #eff6ff; border: 1.5px solid #bfdbfe; border-radius: 10px; padding: 6px 10px; font-weight: 800; color: #1d4ed8; font-size: 0.84rem;">
                                 +{comfort_lift:.1f} vs Baseline
                             </span>
                         </div>
                     </div>
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-bottom: 12px; font-size: 0.86rem;">
-                        <div style="background: #f8fafc; padding: 10px; border-radius: 8px; border: 1px solid #cbd5e1;">
-                            <b style="color: #475569;">🚶 Space & Circulation:</b><br>
+                        <div style="background: #f8fafc; padding: 10px; border-radius: 8px; border: 1.5px solid #cbd5e1;">
+                            <b style="color: #0f172a; font-weight: 700;">🚶 Space & Circulation:</b><br>
                             <span style="color: #0f172a; font-weight: 700;">{active_ai['circulation_clearance']}</span>
                         </div>
-                        <div style="background: #f8fafc; padding: 10px; border-radius: 8px; border: 1px solid #cbd5e1;">
-                            <b style="color: #475569;">💡 Lighting & Ambiance:</b><br>
+                        <div style="background: #f8fafc; padding: 10px; border-radius: 8px; border: 1.5px solid #cbd5e1;">
+                            <b style="color: #0f172a; font-weight: 700;">💡 Lighting & Ambiance:</b><br>
                             <span style="color: #0f172a; font-weight: 700;">{active_ai['lighting_ambiance']}</span>
                         </div>
-                        <div style="background: #f8fafc; padding: 10px; border-radius: 8px; border: 1px solid #cbd5e1;">
-                            <b style="color: #475569;">🛋️ Seating Ergonomics:</b><br>
+                        <div style="background: #f8fafc; padding: 10px; border-radius: 8px; border: 1.5px solid #cbd5e1;">
+                            <b style="color: #0f172a; font-weight: 700;">🛋️ Seating Ergonomics:</b><br>
                             <span style="color: #0f172a; font-weight: 700;">{active_ai['ergonomics_rating']}</span>
                         </div>
-                        <div style="background: #f8fafc; padding: 10px; border-radius: 8px; border: 1px solid #cbd5e1;">
-                            <b style="color: #475569;">♿ Accessibility Rating:</b><br>
-                            <span style="color: #16a34a; font-weight: 700;">{active_ai.get('ada_accessibility_score', 94.0)}/100 ADA</span>
+                        <div style="background: #f8fafc; padding: 10px; border-radius: 8px; border: 1.5px solid #cbd5e1;">
+                            <b style="color: #0f172a; font-weight: 700;">♿ Accessibility Rating:</b><br>
+                            <span style="color: #16a34a; font-weight: 800;">{active_ai.get('ada_accessibility_score', 94.0)}/100 ADA</span>
                         </div>
                     </div>
-                    <div style="font-size: 0.84rem; color: #334155; border-top: 1px solid #cbd5e1; padding-top: 10px;">
-                        <b>Comfort & Ergonomic Highlights:</b>
-                        <ul style="margin: 6px 0 0 0; padding-left: 20px;">
-                            {''.join([f"<li>{b}</li>" for b in active_ai.get('rationale_bullets', [])[:3]])}
+                    <div style="font-size: 0.86rem; color: #0f172a; border-top: 1.5px solid #cbd5e1; padding-top: 10px;">
+                        <b style="color: #0f172a;">Comfort & Ergonomic Highlights:</b>
+                        <ul style="margin: 6px 0 0 0; padding-left: 20px; color: #0f172a;">
+                            {''.join([f"<li style='color: #0f172a;'>{b}</li>" for b in active_ai.get('rationale_bullets', [])[:3]])}
                         </ul>
                     </div>
                 </div>
@@ -904,26 +1073,26 @@ with tab3:
                             <div style="font-size: 1.05rem; font-weight: 700; color: #0f172a;">
                                 ⭐ Projected Target Comfort Score: <span style="color: #16a34a;">92.0 - 96.0 / 100</span>
                             </div>
-                            <div style="font-size: 0.82rem; color: #475569; margin-top: 2px;">
-                                Calculated for {active_users[0]['preferred_style']} & {active_users[1]['preferred_style'] if len(active_users)>1 else ''} preferences with ${st.session_state.budget_limit:,} budget.
+                            <div style="font-size: 0.84rem; color: #1e293b; font-weight: 600; margin-top: 2px;">
+                                Calculated for {active_users[0]['preferred_style']} & {active_users[1]['preferred_style'] if len(active_users)>1 else ''} preferences with ₹{st.session_state.budget_limit:,} budget.
                             </div>
                         </div>
-                        <span style="background: #dcfce7; border: 1px solid #86efac; border-radius: 8px; padding: 4px 12px; font-weight: 700; color: #15803d; font-size: 0.90rem;">
+                        <span style="background: #dcfce7; border: 1.5px solid #86efac; border-radius: 8px; padding: 4px 12px; font-weight: 800; color: #15803d; font-size: 0.92rem;">
                             Target: ~95.0/100
                         </span>
                     </div>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; font-size: 0.84rem;">
-                        <div style="background: #f8fafc; padding: 10px; border-radius: 8px; border: 1px solid #cbd5e1;">
-                            <b style="color: #475569;">🚶 Primary Clearance:</b><br>
-                            <span>Compliant with >90cm unblocked pathways</span>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; font-size: 0.86rem;">
+                        <div style="background: #f8fafc; padding: 10px; border-radius: 8px; border: 1.5px solid #cbd5e1;">
+                            <b style="color: #0f172a; font-weight: 700;">🚶 Primary Clearance:</b><br>
+                            <span style="color: #1e293b; font-weight: 600;">Compliant with >90cm unblocked pathways</span>
                         </div>
-                        <div style="background: #f8fafc; padding: 10px; border-radius: 8px; border: 1px solid #cbd5e1;">
-                            <b style="color: #475569;">💡 Natural Lighting:</b><br>
-                            <span>Oriented toward window daylight ingress</span>
+                        <div style="background: #f8fafc; padding: 10px; border-radius: 8px; border: 1.5px solid #cbd5e1;">
+                            <b style="color: #0f172a; font-weight: 700;">💡 Natural Lighting:</b><br>
+                            <span style="color: #1e293b; font-weight: 600;">Oriented toward window daylight ingress</span>
                         </div>
-                        <div style="background: #f8fafc; padding: 10px; border-radius: 8px; border: 1px solid #cbd5e1;">
-                            <b style="color: #475569;">🛋️ Ergonomic Balance:</b><br>
-                            <span>Optimized seating distances & sightlines</span>
+                        <div style="background: #f8fafc; padding: 10px; border-radius: 8px; border: 1.5px solid #cbd5e1;">
+                            <b style="color: #0f172a; font-weight: 700;">🛋️ Ergonomic Balance:</b><br>
+                            <span style="color: #1e293b; font-weight: 600;">Optimized seating distances & sightlines</span>
                         </div>
                     </div>
                 </div>
@@ -1019,7 +1188,7 @@ with tab3:
                     st.image(str(active_path), use_container_width=True)
                 st.markdown(f"""
                     <div style="background: #f0fdf4; border: 1.5px solid #86efac; border-radius: 8px; padding: 6px 12px; margin-top: 6px; text-align: center;">
-                        <span style="font-size: 0.88rem; color: #166534; font-weight: 700;">💰 Selected Budget: ${st.session_state.budget_limit:,} ({st.session_state.budget_tier})</span>
+                        <span style="font-size: 0.88rem; color: #166534; font-weight: 700;">💰 Selected Budget: ₹{st.session_state.budget_limit:,} ({st.session_state.budget_tier})</span>
                     </div>
                 """, unsafe_allow_html=True)
 
@@ -1036,41 +1205,41 @@ with tab3:
                             <div style="font-size: 1.15rem; font-weight: 700; color: #0f172a;">
                                 📐 Layout Archetype: <span style="color: #2563eb;">{arch_type}</span>
                             </div>
-                            <div style="font-size: 0.82rem; color: #64748b; margin-top: 2px;">
+                            <div style="font-size: 0.84rem; color: #1e293b; font-weight: 600; margin-top: 2px;">
                                 <b>Wall Anchor:</b> {wall_anc} &nbsp;|&nbsp; <b>Corridor Flow:</b> {circ_flow}
                             </div>
                         </div>
                         <div style="display: flex; gap: 10px; align-items: center;">
-                            <span style="background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 12px; padding: 4px 10px; font-size: 0.82rem; color: #475569;">
+                            <span style="background: #f1f5f9; border: 1.5px solid #cbd5e1; border-radius: 12px; padding: 4px 10px; font-size: 0.84rem; color: #0f172a; font-weight: 700;">
                                 <b>Original Room:</b> ~68.0/100
                             </span>
-                            <span style="background: #dcfce7; border: 1px solid #86efac; border-radius: 12px; padding: 4px 12px; font-weight: 700; color: #15803d; font-size: 0.90rem;">
+                            <span style="background: #dcfce7; border: 1.5px solid #86efac; border-radius: 12px; padding: 4px 12px; font-weight: 800; color: #15803d; font-size: 0.92rem;">
                                 ⭐ Redesigned: {active_ai['comfort_score']}/100 (+{(active_ai['comfort_score'] - 68.0):.1f} Lift)
                             </span>
                         </div>
                     </div>
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-bottom: 14px; font-size: 0.86rem;">
-                        <div style="background: #f8fafc; padding: 10px; border-radius: 8px; border: 1px solid #e2e8f0;">
-                            <b style="color: #64748b;">🚶 Space & Circulation:</b><br>
-                            <span style="color: #0f172a;">{active_ai['circulation_clearance']}</span>
+                        <div style="background: #f8fafc; padding: 10px; border-radius: 8px; border: 1.5px solid #cbd5e1;">
+                            <b style="color: #0f172a; font-weight: 700;">🚶 Space & Circulation:</b><br>
+                            <span style="color: #0f172a; font-weight: 700;">{active_ai['circulation_clearance']}</span>
                         </div>
-                        <div style="background: #f8fafc; padding: 10px; border-radius: 8px; border: 1px solid #e2e8f0;">
-                            <b style="color: #64748b;">💡 Lighting & Ambiance:</b><br>
-                            <span style="color: #0f172a;">{active_ai['lighting_ambiance']}</span>
+                        <div style="background: #f8fafc; padding: 10px; border-radius: 8px; border: 1.5px solid #cbd5e1;">
+                            <b style="color: #0f172a; font-weight: 700;">💡 Lighting & Ambiance:</b><br>
+                            <span style="color: #0f172a; font-weight: 700;">{active_ai['lighting_ambiance']}</span>
                         </div>
-                        <div style="background: #f8fafc; padding: 10px; border-radius: 8px; border: 1px solid #e2e8f0;">
-                            <b style="color: #64748b;">🛋️ Seating Ergonomics:</b><br>
-                            <span style="color: #0f172a;">{active_ai['ergonomics_rating']}</span>
+                        <div style="background: #f8fafc; padding: 10px; border-radius: 8px; border: 1.5px solid #cbd5e1;">
+                            <b style="color: #0f172a; font-weight: 700;">🛋️ Seating Ergonomics:</b><br>
+                            <span style="color: #0f172a; font-weight: 700;">{active_ai['ergonomics_rating']}</span>
                         </div>
-                        <div style="background: #f8fafc; padding: 10px; border-radius: 8px; border: 1px solid #e2e8f0;">
-                            <b style="color: #64748b;">💰 Estimated Cost:</b><br>
-                            <span style="color: #16a34a; font-weight: 700;">${active_ai['estimated_cost']:,}</span> (Buffer: +${active_ai['budget_buffer']:,})
+                        <div style="background: #f8fafc; padding: 10px; border-radius: 8px; border: 1.5px solid #cbd5e1;">
+                            <b style="color: #0f172a; font-weight: 700;">💰 Estimated Cost:</b><br>
+                            <span style="color: #16a34a; font-weight: 800;">₹{active_ai['estimated_cost']:,}</span> (Buffer: +₹{active_ai['budget_buffer']:,})
                         </div>
                     </div>
-                    <div style="font-size: 0.85rem; color: #334155; border-top: 1px solid #e2e8f0; padding-top: 10px;">
-                        <b>Architectural Rationale:</b>
-                        <ul style="margin: 6px 0 0 0; padding-left: 20px;">
-                            {''.join([f"<li>{bullet}</li>" for bullet in active_ai.get('rationale_bullets', [])])}
+                    <div style="font-size: 0.86rem; color: #0f172a; border-top: 1.5px solid #cbd5e1; padding-top: 10px;">
+                        <b style="color: #0f172a;">Architectural Rationale:</b>
+                        <ul style="margin: 6px 0 0 0; padding-left: 20px; color: #0f172a;">
+                            {''.join([f"<li style='color: #0f172a;'>{bullet}</li>" for bullet in active_ai.get('rationale_bullets', [])])}
                         </ul>
                     </div>
                 </div>
@@ -1106,15 +1275,15 @@ with tab3:
                     div_score_pct = int(var.get("diversity_score", 0.85) * 100)
                     with col:
                         st.markdown(f"""
-                            <div style="background: {'#eff6ff' if is_active else '#ffffff'}; border: 1px solid {'#3b82f6' if is_active else '#e2e8f0'}; border-radius: 12px; padding: 12px 14px; margin-bottom: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.04);">
+                            <div style="background: {'#eff6ff' if is_active else '#ffffff'}; border: {'2px solid #2563eb' if is_active else '1.5px solid #cbd5e1'}; border-radius: 12px; padding: 12px 14px; margin-bottom: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
                                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
-                                    <span style="font-weight: 700; color: #0f172a; font-size: 0.95rem;">{var.get('title', f'Option {idx+1}')}</span>
-                                    <span style="background: {'#16a34a' if ai_exp['comfort_score'] >= 90 else '#2563eb'}; color: #ffffff; border-radius: 8px; padding: 2px 8px; font-size: 0.74rem; font-weight: 700;">⭐ {ai_exp['comfort_score']}/100</span>
+                                    <span style="font-weight: 800; color: #0f172a; font-size: 0.96rem;">{var.get('title', f'Option {idx+1}')}</span>
+                                    <span style="background: {'#16a34a' if ai_exp['comfort_score'] >= 90 else '#2563eb'}; color: #ffffff; border-radius: 8px; padding: 2px 8px; font-size: 0.74rem; font-weight: 800;">⭐ {ai_exp['comfort_score']}/100</span>
                                 </div>
-                                <div style="font-size: 0.78rem; color: #2563eb; font-weight: 600;">📐 {var_arch}</div>
-                                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 4px;">
-                                    <span style="font-size: 0.75rem; color: #64748b;"><b>Style:</b> {var_style}</span>
-                                    <span style="font-size: 0.72rem; color: #16a34a; font-weight: 600; background: #dcfce7; padding: 1px 6px; border-radius: 4px;">✨ {div_score_pct}% Diversity</span>
+                                <div style="font-size: 0.80rem; color: #1d4ed8; font-weight: 700;">📐 {var_arch}</div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 6px;">
+                                    <span style="font-size: 0.78rem; color: #0f172a; font-weight: 700;"><b>Style:</b> {var_style}</span>
+                                    <span style="font-size: 0.74rem; color: #15803d; font-weight: 700; background: #dcfce7; border: 1px solid #86efac; padding: 2px 7px; border-radius: 5px;">✨ {div_score_pct}% Diversity</span>
                                 </div>
                             </div>
                         """, unsafe_allow_html=True)
@@ -1137,7 +1306,7 @@ with tab3:
 
                         st.markdown(f"""
                             <div style="background: #f0fdf4; border: 1.5px solid #86efac; border-radius: 8px; padding: 5px 8px; margin-top: 6px; margin-bottom: 8px; text-align: center;">
-                                <span style="font-size: 0.82rem; color: #166534; font-weight: 700;">💰 Selected Budget: ${st.session_state.budget_limit:,} ({st.session_state.budget_tier})</span>
+                                <span style="font-size: 0.82rem; color: #166534; font-weight: 700;">💰 Selected Budget: ₹{st.session_state.budget_limit:,} ({st.session_state.budget_tier})</span>
                             </div>
                         """, unsafe_allow_html=True)
 
@@ -1147,15 +1316,15 @@ with tab3:
 
                         with st.expander(f"Option {idx+1} Details & Rationale", expanded=True):
                             st.markdown(f"""
-                                <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px; margin-bottom: 8px; font-size: 0.82rem;">
-                                    <div><b>Wall Anchor:</b> {var.get('wall_anchor', 'Main Wall Anchor')}</div>
-                                    <div style="color: #16a34a; margin-top: 2px;"><b>Corridor Flow:</b> {var.get('circulation_corridor', 'Walkway >90cm')}</div>
-                                    <div style="color: #0284c7; margin-top: 2px;"><b>Space Optimization:</b> Unobstructed doors, windows & paths</div>
+                                <div style="background: #ffffff; border: 1.5px solid #cbd5e1; border-radius: 8px; padding: 12px; margin-bottom: 8px; font-size: 0.86rem; color: #0f172a;">
+                                    <div style="color: #0f172a; font-weight: 600;"><b>Wall Anchor:</b> {var.get('wall_anchor', 'Main Wall Anchor')}</div>
+                                    <div style="color: #15803d; font-weight: 700; margin-top: 3px;"><b>Corridor Flow:</b> {var.get('circulation_corridor', 'Walkway >90cm')}</div>
+                                    <div style="color: #1d4ed8; font-weight: 700; margin-top: 3px;"><b>Space Optimization:</b> Unobstructed doors, windows & paths</div>
                                 </div>
                             """, unsafe_allow_html=True)
 
                             st.markdown(f"""
-                                <div style="font-size: 0.80rem; color: #475569; margin-bottom: 8px;">
+                                <div style="font-size: 0.84rem; color: #0f172a; font-weight: 500; margin-bottom: 8px;">
                                     <b>Architectural Rationale:</b><br>
                                     {''.join([f'• {b}<br>' for b in ai_exp.get('rationale_bullets', [])[:2]])}
                                 </div>
@@ -1241,10 +1410,10 @@ with tab4:
         
         # Selected option evaluation banner
         st.markdown(f"""
-            <div style="background: #ffffff; border: 1px solid #cbd5e1; border-left: 5px solid #2563eb; border-radius: 12px; padding: 14px 18px; margin-bottom: 16px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; box-shadow: 0 2px 10px rgba(15,23,42,0.04);">
+            <div style="background: #ffffff; border: 1.5px solid #cbd5e1; border-left: 6px solid #2563eb; border-radius: 12px; padding: 14px 18px; margin-bottom: 16px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; box-shadow: 0 2px 10px rgba(15,23,42,0.04);">
                 <div>
                     <span style="font-weight: 800; color: #0f172a; font-size: 1.05rem;">Evaluating Preferred Design: <span style="color: #2563eb;">{var_title}</span></span>
-                    <div style="font-size: 0.82rem; color: #475569; margin-top: 2px;"><b>Archetype:</b> {var_arch} &nbsp;|&nbsp; <b>Style:</b> {var_style} &nbsp;|&nbsp; <b>Inhabitant Focus:</b> {var_persona}</div>
+                    <div style="font-size: 0.84rem; color: #0f172a; font-weight: 700; margin-top: 2px;"><b>Archetype:</b> {var_arch} &nbsp;|&nbsp; <b>Style:</b> {var_style} &nbsp;|&nbsp; <b>Inhabitant Focus:</b> {var_persona}</div>
                 </div>
                 <div style="display: flex; gap: 8px; align-items: center;">
                     <span style="background: #dcfce7; border: 1px solid #86efac; color: #15803d; border-radius: 8px; padding: 4px 12px; font-weight: 800; font-size: 0.95rem;">⭐ {active_ai.get('comfort_score', 95.0)}/100 Comfort</span>
@@ -1332,7 +1501,7 @@ with tab4:
             "selected_option": var_title,
             "style": var_style,
             "budget_tier": st.session_state.budget_tier,
-            "budget_limit": f"${st.session_state.budget_limit}",
+            "budget_limit": f"₹{st.session_state.budget_limit}",
             "users": active_users,
             "metrics": metrics,
             "products": active_ai.get("products", []),

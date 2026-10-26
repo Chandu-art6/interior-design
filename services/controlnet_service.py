@@ -256,22 +256,22 @@ class ControlNetService:
 
         budget_item_catalog = {
             "Budget Essential": {
-                "var_1": [f"{u1_style} Coffee Table ($180)", "Ceramic Accent Lamps ($75)"],
-                "var_2": [f"{u2_style} Sectional Slipcover ($350)", "Arc Floor Lamp ($95)", "Potted Greenery ($45)"],
-                "var_3": ["Linen Accent Chair ($220)", "Wall Floating Shelves ($65)", "LED Warm Light Strips ($35)"],
-                "var_4": ["Pair of Minimalist Armchairs ($480)", "Round Glass Side Table ($120)", "Flatweave Area Rug ($160)"]
+                "var_1": [f"{u1_style} Coffee Table (₹14,500)", "Ceramic Accent Lamps (₹6,200)"],
+                "var_2": [f"{u2_style} Sectional Slipcover (₹28,500)", "Arc Floor Lamp (₹7,800)", "Potted Greenery (₹3,700)"],
+                "var_3": ["Linen Accent Chair (₹18,000)", "Wall Floating Shelves (₹5,400)", "LED Warm Light Strips (₹2,900)"],
+                "var_4": ["Pair of Minimalist Armchairs (₹39,500)", "Round Glass Side Table (₹9,900)", "Flatweave Area Rug (₹13,200)"]
             },
             "Mid-Range Premium": {
-                "var_1": [f"Solid Oak {u1_style} Coffee Table ($450)", "Designer Table Lamps ($180)"],
-                "var_2": [f"Modular {u2_style} Sectional ($1,400)", "Brushed Brass Arc Lamp ($240)", "Large Monstera Deliciosa ($85)"],
-                "var_3": ["Velvet Accent Lounge Chair ($620)", "Solid Walnut Floating Shelves ($180)", "Smart Ambient Cove LED ($120)"],
-                "var_4": ["Pair of Bouclé Armchairs ($1,250)", "Calacatta Marble Side Table ($420)", "Handwoven Wool Rug ($550)"]
+                "var_1": [f"Solid Oak {u1_style} Coffee Table (₹37,000)", "Designer Table Lamps (₹14,800)"],
+                "var_2": [f"Modular {u2_style} Sectional (₹1,15,000)", "Brushed Brass Arc Lamp (₹19,800)", "Large Monstera Deliciosa (₹7,000)"],
+                "var_3": ["Velvet Accent Lounge Chair (₹51,000)", "Solid Walnut Floating Shelves (₹14,800)", "Smart Ambient Cove LED (₹9,900)"],
+                "var_4": ["Pair of Bouclé Armchairs (₹1,02,000)", "Calacatta Marble Side Table (₹34,500)", "Handwoven Wool Rug (₹45,000)"]
             },
             "Luxury Bespoke": {
-                "var_1": [f"Bespoke Travertine {u1_style} Table ($1,800)", "Sculptural Alabaster Lamps ($850)"],
-                "var_2": [f"Custom Italian {u2_style} Sectional ($4,500)", "Flos Arc Floor Lamp ($950)", "Mature Specimen Greenery ($350)"],
-                "var_3": ["Designer Shearling Swivel Chair ($2,200)", "Architectural Bronze Floating Shelving ($850)", "Integrated Cove Lighting ($650)"],
-                "var_4": ["Pair of Custom Italian Bouclé Armchairs ($3,600)", "Tiered Calacatta Gold Table ($1,400)", "Hand-Knotted Silk Area Rug ($2,400)"]
+                "var_1": [f"Bespoke Travertine {u1_style} Table (₹1,48,000)", "Sculptural Alabaster Lamps (₹70,000)"],
+                "var_2": [f"Custom Italian {u2_style} Sectional (₹3,70,000)", "Flos Arc Floor Lamp (₹78,000)", "Mature Specimen Greenery (₹28,500)"],
+                "var_3": ["Designer Shearling Swivel Chair (₹1,80,000)", "Architectural Bronze Floating Shelving (₹70,000)", "Integrated Cove Lighting (₹53,500)"],
+                "var_4": ["Pair of Custom Italian Bouclé Armchairs (₹2,95,000)", "Tiered Calacatta Gold Table (₹1,15,000)", "Hand-Knotted Silk Area Rug (₹1,98,000)"]
             }
         }
         catalog = budget_item_catalog.get(budget_tier, budget_item_catalog["Mid-Range Premium"])

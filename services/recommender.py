@@ -191,24 +191,24 @@ class DesignRecommender:
         # Variation Specific Products matching exact layouts
         product_catalog = {
             "var_1": [
-                {"name": "Modern Minimalist Sectional Sofa (Back Wall)", "cost": "$1,350", "role": "Back Wall Anchor (x=50, y=20)"},
-                {"name": "Low-Profile Oak Center Coffee Table", "cost": "$420", "role": "Center Focus (x=50, y=55)"},
-                {"name": "Pair of Textured Bouclé Accent Armchairs", "cost": "$780", "role": "Left (x=15) & Right (x=85) Seating"}
+                {"name": "Modern Minimalist Sectional Sofa (Back Wall)", "cost": "₹1,12,000", "role": "Back Wall Anchor (x=50, y=20)"},
+                {"name": "Low-Profile Oak Center Coffee Table", "cost": "₹35,000", "role": "Center Focus (x=50, y=55)"},
+                {"name": "Pair of Textured Bouclé Accent Armchairs", "cost": "₹65,000", "role": "Left (x=15) & Right (x=85) Seating"}
             ],
             "var_2": [
-                {"name": "Premium Italian Curved Sectional Sofa", "cost": "$2,850", "role": "Left Lateral Wall (x=25, y=45)"},
-                {"name": "Honed Calacatta Marble & Brass Coffee Table", "cost": "$890", "role": "Center-Right Table (x=55, y=55)"},
-                {"name": "Dual Velvet Lounge Accent Chairs", "cost": "$1,120", "role": "Right Diagonal Seating (x=80, y=35 & y=65)"}
+                {"name": "Premium Italian Curved Sectional Sofa", "cost": "₹2,35,000", "role": "Left Lateral Wall (x=25, y=45)"},
+                {"name": "Honed Calacatta Marble & Brass Coffee Table", "cost": "₹74,000", "role": "Center-Right Table (x=55, y=55)"},
+                {"name": "Dual Velvet Lounge Accent Chairs", "cost": "₹92,000", "role": "Right Diagonal Seating (x=80, y=35 & y=65)"}
             ],
             "var_3": [
-                {"name": "Compact Modular L-Shaped Sofa (Back & Left Wall)", "cost": "$1,450", "role": "Back-Left Corner (x=30, y=25)"},
-                {"name": "Round Natural Ash Wood Coffee Table", "cost": "$380", "role": "Center Table (x=55, y=55)"},
-                {"name": "Natural Wood Accent Chair & Potted Monstera", "cost": "$440", "role": "Right Corner (x=85) & Front Plant (x=10)"}
+                {"name": "Compact Modular L-Shaped Sofa (Back & Left Wall)", "cost": "₹1,20,000", "role": "Back-Left Corner (x=30, y=25)"},
+                {"name": "Round Natural Ash Wood Coffee Table", "cost": "₹31,500", "role": "Center Table (x=55, y=55)"},
+                {"name": "Natural Wood Accent Chair & Potted Monstera", "cost": "₹36,500", "role": "Right Corner (x=85) & Front Plant (x=10)"}
             ],
             "var_4": [
-                {"name": "Top-Grain Tufted Cognac Leather Sofa", "cost": "$2,200", "role": "Zone A Lounge (x=30, y=45)"},
-                {"name": "Blackened Steel & Reclaimed Wood Table", "cost": "$520", "role": "Zone A Table (x=30, y=70)"},
-                {"name": "Industrial Timber Work Desk & Ergonomic Chair", "cost": "$950", "role": "Zone B Workstation (x=78, y=45)"}
+                {"name": "Top-Grain Tufted Cognac Leather Sofa", "cost": "₹1,82,000", "role": "Zone A Lounge (x=30, y=45)"},
+                {"name": "Blackened Steel & Reclaimed Wood Table", "cost": "₹43,000", "role": "Zone A Table (x=30, y=70)"},
+                {"name": "Industrial Timber Work Desk & Ergonomic Chair", "cost": "₹78,500", "role": "Zone B Workstation (x=78, y=45)"}
             ]
         }
         products = product_catalog.get(variation_id, product_catalog["var_1"])
@@ -286,7 +286,7 @@ class DesignRecommender:
 
         # Trade-off rejected style note
         tradeoff_notes = {
-            "var_1": "🚫 Rejected Heavy Glam: Ornate crystal & high-gloss finishes would increase budget by +$9,800 and induce 42% visual clutter.",
+            "var_1": "🚫 Rejected Heavy Glam: Ornate crystal & high-gloss finishes would increase budget by +₹8,00,000 and induce 42% visual clutter.",
             "var_2": "🚫 Rejected Dark Industrial: Dark heavy iron screed would absorb 45% natural daylight, dropping DF to 1.4%.",
             "var_3": "🚫 Rejected Maximalist Boho: Overly dense floor-level poufs would pinch walkway flow below ADA standard (72cm).",
             "var_4": "🚫 Rejected Stark Monochrome: Cold untextured surfaces would drop acoustic absorption to NRC 0.42."
